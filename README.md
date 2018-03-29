@@ -1,5 +1,5 @@
 # 微信小程序跳一跳外挂
-可适用于各种大小的手机屏幕，仅适用于安卓手机，目前测试最高一万六千多分。<br>
+可适用于各种大小的手机屏幕，适用于安卓手机或电脑端的安卓模拟器，目前测试最高一万六千多分。<br>
 
 实现方法：<br>
 1、通过adb命令控制手机截屏，并将图片上传到程序目录下；<br>
@@ -26,4 +26,6 @@
 ![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/7.png)<br><br>
 提示中心点的白点的颜色几乎是唯一的，即使在白色方块上肉眼看不出来，程序依然能识别出二者rgb值的区别<br>
 ![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/08.png)<br>
-![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/09.png)<br>
+![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/09.png)<br><br>
+同样的方法找到角色人物上顶点的位置，由于角色形状固定，直接以上顶点按照特定比例往下移即可找到人物底部的中心点位置坐标。通过目标方块的中心点和人物的中心点坐标即可计算出二者之间的距离。距离乘以弹跳系数即可计算出按压屏幕的时间<br>
+![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/97.png)<br>
