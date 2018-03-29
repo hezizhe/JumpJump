@@ -19,7 +19,7 @@ public class TimeCount {
 	private static double TIME_DIF;
 	
 	public static void main(String[] args) throws Exception {
-		new TimeCount().getTime("D:/PracticeWorkspace/JumpJump/screenimg/29.png", 29);
+		new TimeCount().getTime("E:/TestWorkspace8/JumpJump1.2.0/screenimg/25.png", 25);
 	}
 	
 	public int getTime(String path, int i) throws Exception {
@@ -163,17 +163,22 @@ public class TimeCount {
 		Point leftPoint = topPoint;
 		int i = 0;
 		while(true){
-			//优先级别：1、左边一位 2、左下一位 3、下边一位
-			if(sameColor(image.getRGB(leftPoint.x - 1, leftPoint.y), aimPixel)){
-				leftPoint = new Point(leftPoint.x - 1, leftPoint.y);
-				i = 0;
-			} else if (sameColor(image.getRGB(leftPoint.x - 1, leftPoint.y + 1), aimPixel)){
-				leftPoint = new Point(leftPoint.x - 1, leftPoint.y + 1);
-				i = 0;
-			} else if (sameColor(image.getRGB(leftPoint.x, leftPoint.y + 1), aimPixel) && i < 8){
-				leftPoint = new Point(leftPoint.x, leftPoint.y + 1);
-				i++;
-			} else {
+			try {
+				//优先级别：1、左边一位 2、左下一位 3、下边一位
+				if(sameColor(image.getRGB(leftPoint.x - 1, leftPoint.y), aimPixel)){
+					leftPoint = new Point(leftPoint.x - 1, leftPoint.y);
+					i = 0;
+				} else if (sameColor(image.getRGB(leftPoint.x - 1, leftPoint.y + 1), aimPixel)){
+					leftPoint = new Point(leftPoint.x - 1, leftPoint.y + 1);
+					i = 0;
+				} else if (sameColor(image.getRGB(leftPoint.x, leftPoint.y + 1), aimPixel) && i < 8){
+					leftPoint = new Point(leftPoint.x, leftPoint.y + 1);
+					i++;
+				} else {
+					leftPoint = accurateLeftPoint(image, leftPoint, aimPixel);
+					return leftPoint;
+				}
+			} catch (Exception e) {
 				leftPoint = accurateLeftPoint(image, leftPoint, aimPixel);
 				return leftPoint;
 			}
