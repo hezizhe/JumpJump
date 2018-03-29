@@ -21,4 +21,9 @@
 通过以上两步得到了上顶点o的坐标位置与左顶点k的坐标位置，取上顶点的横坐标与左顶点的纵坐标即得到目标方块中心点的坐标位置。<br>
 ![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/05.png)<br><br>
 方形的目标方块边缘棱角更明显，按照上边的算法将更容易确定上顶点与左顶点<br>
-![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/05.png)<br><br>
+![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/07.png)<br><br>
+未避免特殊道具方块造成中心点计算不够准确的情况，程序作了双重保证。当遇到特殊方块时，程序会去寻找目标方块中心的白点（当角色命中中心点时，下一个目标方块中心点上会出现一个白色点，该程序命中中心点的概率很高，基本上都能找到白点）。继续按照上边的算法找到白点的中心点，修正以该点为目标方块的中心点。<br>
+![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/7.png)<br><br>
+提示中心点的白点的颜色几乎是唯一的，即使在白色方块上肉眼看不出来，程序依然能识别出二者rgb值的区别<br>
+![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/08.png)<br>
+![](https://github.com/hezizhe/JumpJump/blob/master/%E8%AE%B2%E8%A7%A3%E5%9B%BE/09.png)<br>
